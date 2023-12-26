@@ -12,6 +12,7 @@ public class AlgoVis extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AlgoVis.class.getResource("algoVis.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
         stage.setMinWidth(850);
         stage.setMinHeight(500);
         stage.setTitle("AlgoVis");
