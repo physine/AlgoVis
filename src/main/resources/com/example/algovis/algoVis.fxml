@@ -2,86 +2,99 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algovis.controllers.MainController" prefHeight="407.0" prefWidth="627.0" spacing="20.0" xmlns="http://javafx.com/javafx/19">
+<VBox alignment="CENTER" prefHeight="407.0" prefWidth="815.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.algovis.controllers.GridController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="587.0">
-            <children>
-                <Button fx:id="startBtn" onAction="#onStartButtonClick" mnemonicParsing="false" text="Start">
-                    <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="pauseBtn" onAction="#onPauseButtonClick" mnemonicParsing="false" text="Pause">
-                    <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Label text="rows:">
-                    <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </HBox.margin>
-                </Label>
-                <TextField fx:id="rows" onKeyReleased="#onRowsChange" prefHeight="25.0" prefWidth="50.0">
-                    <HBox.margin>
-                        <Insets bottom="10.0" right="10.0" top="10.0" />
-                    </HBox.margin>
-                </TextField>
-                <Label text="Cols:">
-                    <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </HBox.margin>
-                </Label>
-                <TextField fx:id="cols" onKeyReleased="#onColsChange" prefHeight="25.0" prefWidth="50.0">
-                    <HBox.margin>
-                        <Insets bottom="10.0" right="10.0" top="10.0" />
-                    </HBox.margin>
-                </TextField>
-                <VBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="106.0">
-                    <children>
-                        <Label text="Speed" />
-                        <Slider fx:id="speedSlider" onMouseDragged="#onSpeedChange" prefHeight="14.0" prefWidth="109.0" />
-                    </children>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </VBox>
-            </children>
-        </HBox>
-        <GridPane fx:id="grid" VBox.vgrow="ALWAYS" styleClass="grid-outline">
-            <children>
-                <!-- Example of adding cells with the 'cell-border' style class -->
-                <Label text="Cell 1" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="cell-border" />
-                <Label text="Cell 2" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="cell-border" />
-                <Label text="Cell 3" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="cell-border" />
-                <Label text="Cell 4" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="cell-border" />
-                <Label text="Cell 5" GridPane.rowIndex="1" GridPane.columnIndex="2" styleClass="cell-border" />
-                <!-- Add more cells as needed -->
-            </children>
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <!-- More column constraints as needed -->
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <!-- More row constraints as needed -->
-            </rowConstraints>
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
+      <VBox prefHeight="82.0" prefWidth="587.0">
+         <children>
+              <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="587.0">
+                  <children>
+                      <Button fx:id="startBtn" mnemonicParsing="false" onAction="#onStartButtonClick" text="Start">
+                          <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </HBox.margin>
+                      </Button>
+                      <Button fx:id="pauseBtn" mnemonicParsing="false" onAction="#onPauseButtonClick" text="Pause">
+                          <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </HBox.margin>
+                      </Button>
+                      <Label text="rows:">
+                          <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </HBox.margin>
+                      </Label>
+                      <TextField fx:id="rows" onKeyReleased="#onRowsChange" prefHeight="25.0" prefWidth="50.0">
+                          <HBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                          </HBox.margin>
+                      </TextField>
+                      <Label text="Cols:">
+                          <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </HBox.margin>
+                      </Label>
+                      <TextField fx:id="cols" onKeyReleased="#onColsChange" prefHeight="25.0" prefWidth="50.0">
+                          <HBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                          </HBox.margin>
+                      </TextField>
+                  <Label prefHeight="17.0" prefWidth="66.0" text="Algorithm:">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="algorithmComboBox" prefHeight="25.0" prefWidth="191.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                      <VBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="120.0">
+                          <children>
+                              <Label text="Speed" />
+                              <Slider fx:id="speedSlider" onMouseDragged="#onSpeedChange" prefHeight="14.0" prefWidth="109.0" />
+                          </children>
+                          <opaqueInsets>
+                              <Insets />
+                          </opaqueInsets>
+                      </VBox>
+                  </children>
+              </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="587.0">
+               <children>
+                  <Button fx:id="startCellBtn" mnemonicParsing="false" text="Start Cell">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="obstacleBtn" mnemonicParsing="false" text="Obstacle">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="finalCellBtn" mnemonicParsing="false" text="Final Cell">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </VBox>
+        <GridPane fx:id="gridPane" VBox.vgrow="ALWAYS">
         </GridPane>
     </children>
 </VBox>

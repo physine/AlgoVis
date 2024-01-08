@@ -1,2 +1,4 @@
-package com.example.algovis.models;public class StartCell {
+package com.example.algovis.models.cell;
+
+public class StartCell {
 }

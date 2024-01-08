@@ -1,17 +1,13 @@
-package com.example.algovis.models;
+package com.example.algovis.models.cell;
 
 public class Cell {
-    private CellType type;
+    String style;
 
-    public Cell(CellType type) {
-        this.type = type;
+    public String getStyle() {
+        return style;
     }
 
-    public CellType getType() {
-        return type;
-    }
-
-    public void setType(CellType type) {
-        this.type = type;
+    public void setStyle(String style) {
+        this.style = style;
     }
 }

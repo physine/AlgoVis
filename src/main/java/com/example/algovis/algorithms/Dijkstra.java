@@ -1,4 +1,15 @@
 package com.example.algovis.algorithms;
 
-public class Dijkstras implements ISearchAlgorithm{
+import com.example.algovis.models.GridModel;
+
+public class Dijkstra implements SearchAlgorithm {
+    @Override
+    public boolean hasNext() {
+        return false;
+    }
+
+    @Override
+    public void nextState(GridModel gridModel) {
+
+    }
 }

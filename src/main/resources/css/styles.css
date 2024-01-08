@@ -1,10 +1,24 @@
-.grid-outline {
-    -fx-border-color: black;
+.grid-style {
+    -fx-border-color: rgba(0, 0, 0, 0.26);
     -fx-border-width: 1;
 }
 
-.cell-border {
-    -fx-border-color: black;
+.start-cell-style {
+    -fx-border-color: green;
     -fx-border-width: 1px;
-    /*-fx-background-color: blue;*/
+}
+
+.end-cell-style {
+    -fx-border-color: gold;
+    -fx-border-width: 1px;
+}
+
+.obstacle-cell-style {
+    -fx-border-color: rgba(0, 0, 0, 0.03);
+    -fx-border-width: 1px;
+}
+
+.empty-cell-style {
+    -fx-border-color: #ffffff;
+    -fx-border-width: 1px;
 }

@@ -8,3 +8,6 @@ single window:
 
 - make the ui nice
 Pause
+
+
+view -> controller -> model
