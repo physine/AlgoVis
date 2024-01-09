@@ -1,9 +1,7 @@
 package com.example.algovis;
 
 import com.example.algovis.controllers.GridController;
-import com.example.algovis.models.GridModel;
 import com.example.algovis.modules.ServiceModule;
-import com.example.algovis.services.GridSearchService;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import javafx.application.Application;
@@ -27,8 +25,9 @@ public class AlgoVis extends Application {
         Parent root = fxmlLoader.load(); // Load the FXML file
         Scene scene = new Scene(root, 320, 240);
         scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
-        stage.setMinWidth(1000);
-        stage.setMinHeight(600);
+        stage.setResizable(false);
+        stage.setMinWidth(1200);
+        stage.setMinHeight(900);
         stage.setTitle("AlgoVis");
         stage.setScene(scene);
         stage.show();

@@ -1,21 +1,15 @@
 package com.example.algovis.models;
 
-import com.example.algovis.algorithms.SearchAlgorithm;
 import com.example.algovis.models.cell.Cell;
 import com.example.algovis.models.cell.EmptyCell;
 
 public class GridModel {
 
     private Cell[][] grid;
-    private int rows;
-    private int columns;
+    private int rows = 80;
+    private int columns = 80;
 
-    public GridModel(){
-    }
-
-    public GridModel(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
+    public GridModel() {
         grid = new Cell[rows][columns];
         initializeGrid();
     }
@@ -28,27 +22,27 @@ public class GridModel {
         }
     }
 
-    public void resizeGrid(int newRows, int newColumns) {
-        Cell[][] newGrid = new Cell[newRows][newColumns];
-
-        // Determine the bounds for the copy operation
-        int maxRows = Math.min(newRows, rows);
-        int maxColumns = Math.min(newColumns, columns);
-
-        for (int i = 0; i < newRows; i++) {
-            for (int j = 0; j < newColumns; j++) {
-                if (i < maxRows && j < maxColumns) {
-                    newGrid[i][j] = grid[i][j]; // Copy existing cell
-                } else {
-                    newGrid[i][j] = new EmptyCell(); // Fill remainder with empty cells
-                }
-            }
-        }
-
-        rows = newRows;
-        columns = newColumns;
-        grid = newGrid;
-    }
+//    public void resizeGrid(int newRows, int newColumns) {
+//        Cell[][] newGrid = new Cell[newRows][newColumns];
+//
+//        // Determine the bounds for the copy operation
+//        int maxRows = Math.min(newRows, rows);
+//        int maxColumns = Math.min(newColumns, columns);
+//
+//        for (int i = 0; i < newRows; i++) {
+//            for (int j = 0; j < newColumns; j++) {
+//                if (i < maxRows && j < maxColumns) {
+//                    newGrid[i][j] = grid[i][j]; // Copy existing cell
+//                } else {
+//                    newGrid[i][j] = new EmptyCell(); // Fill remainder with empty cells
+//                }
+//            }
+//        }
+//
+//        rows = newRows;
+//        columns = newColumns;
+//        grid = newGrid;
+//    }
 
     public Cell getCell(int row, int column) {
         if (isValidPosition(row, column)) {
