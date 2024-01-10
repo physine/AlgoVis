@@ -1,79 +1,78 @@
 package com.example.algovis.models;
 
-import com.example.algovis.models.cell.Cell;
-import com.example.algovis.models.cell.EmptyCell;
+
+import com.example.algovis.models.gridModleStates.GridState;
+import com.example.algovis.models.gridModleStates.PreSearchState;
 
 public class GridModel {
 
-    private Cell[][] grid;
-    private int rows = 80;
-    private int columns = 80;
+    private GridState state;
+    private final int rows = 70;
+    private final int columns = 70;
+    private Point startCellLocation;
+    private Point endCellLocation;
 
     public GridModel() {
-        grid = new Cell[rows][columns];
-        initializeGrid();
+        state = new PreSearchState();
     }
 
     public void initializeGrid() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                grid[i][j] = new EmptyCell(); // Initialize with default cell type
+
             }
         }
     }
 
-//    public void resizeGrid(int newRows, int newColumns) {
-//        Cell[][] newGrid = new Cell[newRows][newColumns];
-//
-//        // Determine the bounds for the copy operation
-//        int maxRows = Math.min(newRows, rows);
-//        int maxColumns = Math.min(newColumns, columns);
-//
-//        for (int i = 0; i < newRows; i++) {
-//            for (int j = 0; j < newColumns; j++) {
-//                if (i < maxRows && j < maxColumns) {
-//                    newGrid[i][j] = grid[i][j]; // Copy existing cell
-//                } else {
-//                    newGrid[i][j] = new EmptyCell(); // Fill remainder with empty cells
-//                }
-//            }
-//        }
-//
-//        rows = newRows;
-//        columns = newColumns;
-//        grid = newGrid;
-//    }
+    // =============== Data Operations =============== //
 
-    public Cell getCell(int row, int column) {
-        if (isValidPosition(row, column)) {
-            return grid[row][column];
-        }
-        return null;
+    public void resetGrid(){
     }
 
-    public void setCell(int row, int column, Cell cell) {
-        if (isValidPosition(row, column)) {
-            grid[row][column] = cell;
-        }
+    private boolean isValidPosition(int row, int column) {
+        return row >= 0 && row < rows && column >= 0 && column < columns;
     }
 
-    public void setColumns(int columns) {
-        this.columns = columns;
+    public boolean isReadyToStartSearch(){
+        return startCellLocation != null && endCellLocation != null;
+    }
+
+    // =============== View Event Handlers =============== //
+
+    public void handleStart(){
+        state.handleStartBtn(this);
+    }
+
+    public void handleReset(){
+        state.handleResetBtn(this);
+    }
+
+    // =============== Getter/Setters =============== //
+
+    public void setState(GridState state){
+        this.state = state;
+    }
+
+    public GridState getState(){
+        return state;
     }
 
     public int getRows() {
         return rows;
     }
 
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
     public int getColumns() {
         return columns;
     }
 
-    private boolean isValidPosition(int row, int column) {
-        return row >= 0 && row < rows && column >= 0 && column < columns;
+    // =============== Other Data =============== //
+
+    private static class Point {
+        int x;
+        int y;
+        Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

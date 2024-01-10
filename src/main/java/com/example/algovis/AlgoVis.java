@@ -26,8 +26,8 @@ public class AlgoVis extends Application {
         Scene scene = new Scene(root, 320, 240);
         scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
         stage.setResizable(false);
-        stage.setMinWidth(1200);
-        stage.setMinHeight(900);
+        stage.setMinWidth(1000);
+        stage.setMinHeight(1000);
         stage.setTitle("AlgoVis");
         stage.setScene(scene);
         stage.show();

@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a36483-67c9-45b6-9145-604ac5a15f32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/AlgorithmFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/CellClickHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Cell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/GridState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/PostSearchState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/PreSearchState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/SearchingState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/AlgoVis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/AlgoVis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/CellClickHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/StartCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/StartCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/EmptyCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/EndCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/ObstacleCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/cell/StartCell.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,21 +54,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.folding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Aaron\Documents\prograns\java\AlgoVis\src\main\resources\fxml" />
@@ -99,7 +110,8 @@
       <workItem from="1704306211955" duration="7382000" />
       <workItem from="1704399623952" duration="2432000" />
       <workItem from="1704652141641" duration="9004000" />
-      <workItem from="1704818318737" duration="17661000" />
+      <workItem from="1704818318737" duration="28870000" />
+      <workItem from="1704908340125" duration="14745000" />
     </task>
     <servers />
   </component>
