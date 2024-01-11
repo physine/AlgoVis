@@ -51,17 +51,17 @@
               </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="587.0">
                <children>
-                  <Button fx:id="startCellBtn" onMouseClicked="#onStartButtonClicked" mnemonicParsing="false" text="Start Cell">
+                  <Button fx:id="startCellBtn" onMouseClicked="#onStartCellButtonClicked" mnemonicParsing="false" text="Start Cell">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="obstacleBtn" onMouseClicked="#onObstacleButtonClicked" mnemonicParsing="false" text="Obstacle">
+                  <Button fx:id="obstacleCellBtn" onMouseClicked="#onObstacleCellButtonClicked" mnemonicParsing="false" text="Obstacle">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="finalCellBtn" onMouseClicked="#onEndButtonClicked" mnemonicParsing="false" text="Final Cell">
+                  <Button fx:id="finalCellBtn" onMouseClicked="#onEndCellButtonClicked" mnemonicParsing="false" text="Final Cell">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -73,7 +73,7 @@
             </HBox>
          </children>
       </VBox>
-        <GridPane fx:id="gridPane" VBox.vgrow="ALWAYS">
+        <GridPane fx:id="gridView" VBox.vgrow="ALWAYS">
         </GridPane>
     </children>
 </VBox>
