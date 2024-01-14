@@ -43,7 +43,6 @@ public class GridBuilder {
                 int finalJ = j;
                 pane.setOnMousePressed(event -> gridController.handleGridPaneClick(event, finalI, finalJ));
 
-//              pane.setOnMouseDragged(event -> gridController.handleGridPaneMouseDragged(event, finalI, finalJ));
                 pane.setOnMouseClicked(event ->
                     gridController.handleGridPaneMouseStartDragging(event, finalI, finalJ)
                 );
@@ -51,8 +50,6 @@ public class GridBuilder {
                 pane.setOnMouseEntered(event ->
                     gridController.handleGridPaneMouseEnter(event, finalI, finalJ)
                 );
-
-//                pane.setOnMouseReleased(event -> gridController.handleGridPaneMouseReleased(event, finalI, finalJ));
 
                 pane.setOnMouseReleased(event ->
                     gridController.handleGridPaneMouseStopDragging(event, finalI, finalJ)

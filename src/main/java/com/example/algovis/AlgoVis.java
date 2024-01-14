@@ -13,9 +13,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AlgoVis extends Application {
+
+    public static Injector injector;
+
     @Override
     public void start(Stage stage) throws IOException {
-        Injector injector = Guice.createInjector(new ServiceModule());
+        injector = Guice.createInjector(new ServiceModule());
         GridController gridController = injector.getInstance(GridController.class);
 
         FXMLLoader fxmlLoader = new FXMLLoader(AlgoVis.class.getResource("algoVis.fxml"));
@@ -31,6 +34,10 @@ public class AlgoVis extends Application {
         stage.setTitle("AlgoVis");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static Injector getInjector(){
+        return injector;
     }
 
     public static void main(String[] args) {

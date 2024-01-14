@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a36483-67c9-45b6-9145-604ac5a15f32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/eventMangment/EventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/eventMangment/events/OnSearchingState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/AlgoVis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/AlgoVis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/DFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/PreSearchState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/PreSearchState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/SearchingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/SearchingState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +30,8 @@
       <list>
         <option value="CSS File" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -34,6 +40,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectId" id="2ZvKpw4yXAI02MLIlD8kKRgkhtZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -55,7 +64,10 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -102,11 +114,17 @@
       <workItem from="1704818318737" duration="28870000" />
       <workItem from="1704908340125" duration="21259000" />
       <workItem from="1704985397366" duration="12301000" />
-      <workItem from="1705005082978" duration="6899000" />
+      <workItem from="1705005082978" duration="22420000" />
+      <workItem from="1705181307150" duration="13909000" />
+      <workItem from="1705245693291" duration="10715000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

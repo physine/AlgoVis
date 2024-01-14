@@ -1,10 +1,12 @@
 package com.example.algovis.controllers;
 
 import com.example.algovis.algorithms.AlgorithmFactory;
+import com.example.algovis.algorithms.DFS;
 import com.example.algovis.algorithms.SearchAlgorithm;
 import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
 import com.example.algovis.models.gridModleStates.PreSearchState;
+import com.example.algovis.models.gridModleStates.SearchingState;
 import com.example.algovis.presentation.GridBuilder;
 import com.example.algovis.services.GridSearchService;
 import com.google.inject.Inject;
@@ -18,7 +20,9 @@ import javafx.scene.layout.GridPane;
 public class GridController{
 
     private GridModel gridModel;
+
     private GridBuilder gridBuilder;
+
     private GridSearchService gridSearchService;
 
     @FXML
@@ -28,7 +32,7 @@ public class GridController{
     private Button resetBtn;
 
     @FXML
-    private Slider speedSlider;
+    private Slider speedCoefficientSlider;
 
     @FXML
     private Button startCellBtn;
@@ -40,7 +44,7 @@ public class GridController{
     private Button finalCellBtn;
 
     @FXML
-    private GridPane gridView;
+    public GridPane gridView;
 
     @FXML
     private ComboBox<String> algorithmComboBox;
@@ -65,6 +69,7 @@ public class GridController{
         this.gridSearchService = gridSearchService;
         this.gridBuilder = gridBuilder;
         gridBuilder.setGridController(this);
+        gridSearchService.setGridController(this);
     }
 
     @FXML
@@ -80,8 +85,13 @@ public class GridController{
         };
         algorithmComboBox.getItems().addAll(algorithms[0], algorithms[1], algorithms[2], algorithms[3]);
         algorithmComboBox.setValue(algorithms[0]);
+        SearchAlgorithm selectedAlgorithm = AlgorithmFactory.getAlgorithm(algorithms[0]);
+        gridSearchService.setSearchAlgorithm(selectedAlgorithm);
 
         gridView.getStyleClass().add("grid-style");
+
+        speedCoefficientSlider.setMin(0.1);
+        speedCoefficientSlider.setMax(1.0);
 
         updateGridUI();
     }
@@ -89,6 +99,14 @@ public class GridController{
     @FXML
     public void onStartButtonClick(){
         gridModel.handleStart();
+    }
+
+    public GridSearchService getGridSearchService() {
+        return gridSearchService;
+    }
+
+    public void onSearchCompleted(){
+        gridModel.setState(new PreSearchState());
     }
 
     @FXML
@@ -110,6 +128,7 @@ public class GridController{
 
     @FXML
     public void onSpeedChange(){
+        gridSearchService.setDelayCoefficient(speedCoefficientSlider.getValue());
     }
 
     @FXML
@@ -128,40 +147,32 @@ public class GridController{
     }
 
     public void handleGridPaneClick(MouseEvent event, int row, int col) {
-        System.out.println("Pane Click");
         if ((gridModel.getState() instanceof PreSearchState) && cellMarker != CellMarkerState.None){
             gridModel.handleGridPaneClick(cellMarker, row, col);
-            updateCellUI(gridModel.getCell(row, col));
+            updateGridUI();
         }
     }
 
     public void handleGridPaneMouseEnter(MouseEvent event, int row, int col) {
-//        System.out.println("Mouse Enter: row: "+row+"   "+"col: "+col+"     "+"event.isPrimaryButtonDown(): "+event.isPrimaryButtonDown());
-        if (cellMarker == CellMarkerState.Obstacle ){
-//            System.out.println("Mouse Enter in if");
+        if ((gridModel.getState() instanceof PreSearchState) && cellMarker == CellMarkerState.Obstacle){
             gridModel.handleGridPaneHover(row, col);
             updateCellUI(gridModel.getCell(row, col));
-//            updateGridUI();
         }
     }
 
     public void handleGridPaneMouseStartDragging(MouseEvent event, int row, int col) {
-//        System.out.println("Mouse Dragged start");
-        if (cellMarker == CellMarkerState.Obstacle && event.isPrimaryButtonDown()){
+        if ((gridModel.getState() instanceof PreSearchState) && cellMarker == CellMarkerState.Obstacle){
             isDragging = true;
             gridModel.handleGridPaneHover(row, col);
             updateCellUI(gridModel.getCell(row, col));
-//            updateGridUI();
         }
     }
 
     public void handleGridPaneMouseStopDragging(MouseEvent event, int row, int col) {
-//        System.out.println("Mouse Dragged stop");
-        if (cellMarker == CellMarkerState.Obstacle && event.isPrimaryButtonDown()){
+        if ((gridModel.getState() instanceof PreSearchState) && cellMarker == CellMarkerState.Obstacle){
             isDragging = false;
             gridModel.handleGridPaneHover(row, col);
             updateCellUI(gridModel.getCell(row, col));
-//            updateGridUI();
         }
     }
 

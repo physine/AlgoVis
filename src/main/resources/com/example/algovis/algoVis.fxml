@@ -41,7 +41,7 @@
                       <VBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="120.0">
                           <children>
                               <Label text="Speed" />
-                              <Slider fx:id="speedSlider" onMouseDragged="#onSpeedChange" prefHeight="14.0" prefWidth="109.0" />
+                              <Slider fx:id="speedCoefficientSlider" onMouseDragged="#onSpeedChange" prefHeight="14.0" prefWidth="109.0" />
                           </children>
                           <opaqueInsets>
                               <Insets />

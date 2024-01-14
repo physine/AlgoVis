@@ -1,22 +1,19 @@
 package com.example.algovis.models;
 
-
 import com.example.algovis.controllers.GridController;
 import com.example.algovis.models.gridModleStates.GridState;
 import com.example.algovis.models.gridModleStates.PreSearchState;
 
 public class GridModel {
 
-    private Cell[][] cells;
-    private GridState state;
-    private final int rows = 70;
     private final int columns = 70;
+    private final int rows = 70;
+    private Cell[][] cells = new Cell[rows][columns];
+    private GridState state = new PreSearchState();
     private Point startCellLocation;
     private Point endCellLocation;
 
     public GridModel() {
-        cells = new Cell[rows][columns];
-        state = new PreSearchState();
         resetGrid();
     }
 
@@ -40,18 +37,41 @@ public class GridModel {
         return startCellLocation != null && endCellLocation != null;
     }
 
-    private void changeToStartCell(int row, int col){
+    private void changeStartCell(int row, int col){
+        if (startCellLocation == null){
+            startCellLocation = new Point(row, col);
+            Cell cell = getCell(row, col);
+            cell.setState(Cell.CellType.StartCell);
+            return;
+        }
+
+        Cell oldStartingCell = getCell(startCellLocation.x, startCellLocation.y);
+        oldStartingCell.setState(Cell.CellType.EmptyCell);
+
+        startCellLocation = new Point(row, col);
         Cell cell = getCell(row, col);
         cell.setState(Cell.CellType.StartCell);
     }
 
-    private void changeToEndCell(int row, int col){
+    private void changeEndCell(int row, int col){
+        if (endCellLocation == null){
+            endCellLocation = new Point(row, col);
+            Cell cell = getCell(row, col);
+            cell.setState(Cell.CellType.EndCell);
+            return;
+        }
+
+        Cell oldEndingCell = getCell(endCellLocation.x, endCellLocation.y);
+        oldEndingCell.setState(Cell.CellType.EmptyCell);
+
+        endCellLocation = new Point(row, col);
         Cell cell = getCell(row, col);
         cell.setState(Cell.CellType.EndCell);
     }
 
     private void changeToObstacleCell(int row, int col){
         Cell cell = getCell(row, col);
+        // TODO: check if the cell is the start or end cell first, and update as needed
         cell.setState(Cell.CellType.ObstacleCell);
     }
 
@@ -69,7 +89,7 @@ public class GridModel {
         switch (cellMarker){
             case Start -> {
                 // make sure there is only one start cell
-                changeToStartCell(row, col);
+                changeStartCell(row, col);
             }
             case Obstacle -> {
                 // make cell as obstacle
@@ -77,7 +97,7 @@ public class GridModel {
             }
             case End -> {
                 // make sure there is only one end cell
-                changeToEndCell(row, col);
+                changeEndCell(row, col);
             }
             default -> {
 
@@ -118,7 +138,7 @@ public class GridModel {
 
     // =============== Other Data =============== //
 
-    private static class Point {
+    public static class Point {
         int x;
         int y;
         Point(int x, int y) {
