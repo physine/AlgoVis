@@ -4,5 +4,6 @@ import com.example.algovis.models.GridModel;
 
 public interface SearchAlgorithm {
     boolean hasNext();
-    void nextState(GridModel gridModel);
+    void nextState();
+    void setGridModel(GridModel gridModel);
 }

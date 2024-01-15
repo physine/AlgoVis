@@ -1,12 +1,10 @@
 package com.example.algovis.controllers;
 
 import com.example.algovis.algorithms.AlgorithmFactory;
-import com.example.algovis.algorithms.DFS;
 import com.example.algovis.algorithms.SearchAlgorithm;
 import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
 import com.example.algovis.models.gridModleStates.PreSearchState;
-import com.example.algovis.models.gridModleStates.SearchingState;
 import com.example.algovis.presentation.GridBuilder;
 import com.example.algovis.services.GridSearchService;
 import com.google.inject.Inject;
@@ -16,6 +14,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+
+import java.util.ArrayList;
 
 public class GridController{
 
@@ -70,6 +70,7 @@ public class GridController{
         this.gridBuilder = gridBuilder;
         gridBuilder.setGridController(this);
         gridSearchService.setGridController(this);
+        this.gridSearchService.setGridModel(gridModel);
     }
 
     @FXML
@@ -156,7 +157,7 @@ public class GridController{
     public void handleGridPaneMouseEnter(MouseEvent event, int row, int col) {
         if ((gridModel.getState() instanceof PreSearchState) && cellMarker == CellMarkerState.Obstacle){
             gridModel.handleGridPaneHover(row, col);
-            updateCellUI(gridModel.getCell(row, col));
+            updateGridCellUI(gridModel.getCell(row, col));
         }
     }
 
@@ -164,7 +165,7 @@ public class GridController{
         if ((gridModel.getState() instanceof PreSearchState) && cellMarker == CellMarkerState.Obstacle){
             isDragging = true;
             gridModel.handleGridPaneHover(row, col);
-            updateCellUI(gridModel.getCell(row, col));
+            updateGridCellUI(gridModel.getCell(row, col));
         }
     }
 
@@ -172,15 +173,23 @@ public class GridController{
         if ((gridModel.getState() instanceof PreSearchState) && cellMarker == CellMarkerState.Obstacle){
             isDragging = false;
             gridModel.handleGridPaneHover(row, col);
-            updateCellUI(gridModel.getCell(row, col));
+            updateGridCellUI(gridModel.getCell(row, col));
         }
     }
 
     public void updateGridUI(){
+        System.out.println("[i] Updating UI (controller) gridModel: "+gridModel);
         gridBuilder.buildGridUI(gridView, gridModel);
+        System.out.println("[i] Updated UI (controller)");
     }
 
-    public void updateCellUI(Cell cell){
+    public void updateGridCellUI(Cell cell){
         gridBuilder.buildCellUI(gridView, cell);
+    }
+
+    public void updateGridCellUI(ArrayList<Cell> cells){
+        for (Cell cell : cells) {
+            gridBuilder.buildCellUI(gridView, cell);
+        }
     }
 }

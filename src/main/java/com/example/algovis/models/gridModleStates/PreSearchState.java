@@ -3,7 +3,6 @@ package com.example.algovis.models.gridModleStates;
 import com.example.algovis.eventMangment.EventManager;
 import com.example.algovis.eventMangment.events.OnSearchingState;
 import com.example.algovis.models.GridModel;
-import com.google.inject.Injector;
 
 import static com.example.algovis.AlgoVis.getInjector;
 

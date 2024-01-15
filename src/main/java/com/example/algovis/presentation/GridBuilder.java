@@ -3,6 +3,7 @@ package com.example.algovis.presentation;
 import com.example.algovis.controllers.GridController;
 import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.*;
 
@@ -11,54 +12,55 @@ public class GridBuilder {
     GridController gridController;
 
     public void buildGridUI(GridPane gridPane, GridModel gridModel) {
-        gridPane.getChildren().clear(); // Clear existing children
-        int rows = gridModel.getRows();
-        int cols = gridModel.getColumns();
+        // Use Platform.runLater to ensure UI updates are done on the JavaFX Application Thread
+        Platform.runLater(() -> {
+            System.out.println("[i] in buildGridUI 1 gridPane: " + (gridPane == null));
+            gridPane.getChildren().clear(); // Clear existing children
+            System.out.println("[i] in buildGridUI 1.1");
 
-        // Set up column and row constraints to evenly distribute space
-        gridPane.getColumnConstraints().clear();
-        gridPane.getRowConstraints().clear();
+            int rows = gridModel.getRows();
+            int cols = gridModel.getColumns();
 
-        for (int i = 0; i < cols; i++) {
-            ColumnConstraints colConst = new ColumnConstraints();
-            colConst.setHgrow(Priority.ALWAYS); // Allow column to grow
-            colConst.setFillWidth(true); // Make sure the column takes up all available space
-            gridPane.getColumnConstraints().add(colConst);
-        }
+            // Set up column and row constraints to evenly distribute space
+            gridPane.getColumnConstraints().clear();
+            gridPane.getRowConstraints().clear();
 
-        for (int i = 0; i < rows; i++) {
-            RowConstraints rowConst = new RowConstraints();
-            rowConst.setVgrow(Priority.ALWAYS); // Allow row to grow
-            rowConst.setFillHeight(true); // Make sure the row takes up all available space
-            gridPane.getRowConstraints().add(rowConst);
-        }
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                Pane pane = new Pane();
-                Cell cell = gridModel.getCell(i, j);
-                applyCellStyle(pane, cell); // Apply style based on cell type
-
-                int finalI = i;
-                int finalJ = j;
-                pane.setOnMousePressed(event -> gridController.handleGridPaneClick(event, finalI, finalJ));
-
-                pane.setOnMouseClicked(event ->
-                    gridController.handleGridPaneMouseStartDragging(event, finalI, finalJ)
-                );
-
-                pane.setOnMouseEntered(event ->
-                    gridController.handleGridPaneMouseEnter(event, finalI, finalJ)
-                );
-
-                pane.setOnMouseReleased(event ->
-                    gridController.handleGridPaneMouseStopDragging(event, finalI, finalJ)
-                );
-
-                gridPane.add(pane, j, i);
+            for (int i = 0; i < cols; i++) {
+                ColumnConstraints colConst = new ColumnConstraints();
+                colConst.setHgrow(Priority.ALWAYS);
+                colConst.setFillWidth(true);
+                gridPane.getColumnConstraints().add(colConst);
             }
-        }
+
+            for (int i = 0; i < rows; i++) {
+                RowConstraints rowConst = new RowConstraints();
+                rowConst.setVgrow(Priority.ALWAYS);
+                rowConst.setFillHeight(true);
+                gridPane.getRowConstraints().add(rowConst);
+            }
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    Pane pane = new Pane();
+                    Cell cell = gridModel.getCell(i, j);
+                    applyCellStyle(pane, cell); // Apply style based on cell type
+
+                    int finalI = i;
+                    int finalJ = j;
+                    setupEventHandlers(pane, finalI, finalJ);
+                    gridPane.add(pane, j, i);
+                }
+            }
+        });
     }
+
+    private void setupEventHandlers(Pane pane, int row, int col) {
+        pane.setOnMousePressed(event -> gridController.handleGridPaneClick(event, row, col));
+        pane.setOnMouseClicked(event -> gridController.handleGridPaneMouseStartDragging(event, row, col));
+        pane.setOnMouseEntered(event -> gridController.handleGridPaneMouseEnter(event, row, col));
+        pane.setOnMouseReleased(event -> gridController.handleGridPaneMouseStopDragging(event, row, col));
+    }
+
 
     public void buildCellUI(GridPane gridPane, Cell cell) {
         int row = cell.getX();

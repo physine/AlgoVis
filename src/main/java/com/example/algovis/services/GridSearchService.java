@@ -18,21 +18,28 @@ public class GridSearchService {
     private Task<Void> searchTask;
 
     public void startSearchTask() {
-        System.out.println("[i] Starting Search");
+        System.out.println("\n[i] Starting Search");
+        searchAlgorithm.setGridModel(gridModel);
 
         searchTask = new Task<>() {
             @Override
             protected Void call() throws Exception {
+                System.out.println("[i] Starting Task");
                 while (!isCancelled() && searchAlgorithm.hasNext()) {
-//                    searchAlgorithm.nextState(gridModel);
+                    System.out.println("[i] has next = true");
+                    searchAlgorithm.nextState();
+                    System.out.println("[i] Updating UI");
+                    gridController.updateGridUI();
+                    System.out.println("[i] Updated UI");
                     try {
                         int delay = 1000 - (int) (1000.0 * delayCoefficient);
                         System.out.println("[i] delayCoefficient "+delayCoefficient+" delay "+delay+" i "+i++);
                         Thread.sleep(delay);
-                    } catch (InterruptedException ex) {
-                        if (isCancelled()) {
-                            break;
-                        }
+                    } catch (InterruptedException e) {
+                        throw e;
+//                        if (isCancelled()) {
+//                            break;
+//                        }
                     }
                 }
                 return null;
@@ -54,5 +61,9 @@ public class GridSearchService {
 
     public void setGridController(GridController gridController) {
         this.gridController = gridController;
+    }
+
+    public void setGridModel(GridModel gridModel) {
+        this.gridModel = gridModel;
     }
 }

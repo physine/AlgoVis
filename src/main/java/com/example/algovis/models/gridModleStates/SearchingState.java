@@ -4,7 +4,6 @@ import com.example.algovis.eventMangment.events.OnSearchingState;
 import com.example.algovis.models.GridModel;
 import com.example.algovis.services.GridSearchService;
 import com.google.common.eventbus.Subscribe;
-import com.google.inject.Injector;
 
 import static com.example.algovis.AlgoVis.getInjector;
 

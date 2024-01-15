@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a36483-67c9-45b6-9145-604ac5a15f32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/eventMangment/EventManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/eventMangment/events/OnSearchingState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/AlgoVis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/AlgoVis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/BFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/SearchAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/PreSearchState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/PreSearchState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/SearchingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/gridModleStates/SearchingState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,15 +113,32 @@
       <workItem from="1704985397366" duration="12301000" />
       <workItem from="1705005082978" duration="22420000" />
       <workItem from="1705181307150" duration="13909000" />
-      <workItem from="1705245693291" duration="10715000" />
+      <workItem from="1705245693291" duration="11471000" />
+      <workItem from="1705342659784" duration="8506000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AlgoVis$AlgoVis.ic" NAME="AlgoVis Coverage Results" MODIFIED="1705351579694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.algovis.*</FILTER>
+    </SUITE>
   </component>
 </project>

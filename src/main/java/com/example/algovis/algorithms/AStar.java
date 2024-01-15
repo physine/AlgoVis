@@ -3,13 +3,21 @@ package com.example.algovis.algorithms;
 import com.example.algovis.models.GridModel;
 
 public class AStar implements SearchAlgorithm {
+
+    private GridModel gridModel;
+
     @Override
     public boolean hasNext() {
         return false;
     }
 
     @Override
-    public void nextState(GridModel gridModel) {
+    public void nextState() {
 
+    }
+
+    @Override
+    public void setGridModel(GridModel gridModel) {
+        this.gridModel = gridModel;
     }
 }
