@@ -14,11 +14,8 @@ public class DFS implements SearchAlgorithm {
 
     @Override
     public void nextState() {
-        System.out.println("[i] changing cell state 1");
         Cell cell = gridModel.getCell(10, 10);
-        System.out.println("[i] changing cell state 2");
         cell.setState(Cell.CellType.ObstacleCell);
-        System.out.println("[i] done changing cell state");
     }
 
     @Override

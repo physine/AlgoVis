@@ -178,9 +178,7 @@ public class GridController{
     }
 
     public void updateGridUI(){
-        System.out.println("[i] Updating UI (controller) gridModel: "+gridModel);
         gridBuilder.buildGridUI(gridView, gridModel);
-        System.out.println("[i] Updated UI (controller)");
     }
 
     public void updateGridCellUI(Cell cell){

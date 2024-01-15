@@ -50,6 +50,8 @@ public class GridModel {
 
         startCellLocation = new Point(row, col);
         Cell cell = getCell(row, col);
+        if (cell.getState() == Cell.CellType.EndCell)
+            endCellLocation = null;
         cell.setState(Cell.CellType.StartCell);
     }
 
@@ -66,12 +68,17 @@ public class GridModel {
 
         endCellLocation = new Point(row, col);
         Cell cell = getCell(row, col);
+        if (cell.getState() == Cell.CellType.StartCell)
+            startCellLocation = null;
         cell.setState(Cell.CellType.EndCell);
     }
 
     private void changeToObstacleCell(int row, int col){
         Cell cell = getCell(row, col);
-        // TODO: check if the cell is the start or end cell first, and update as needed
+        if (cell.getState() == Cell.CellType.StartCell)
+            startCellLocation = null;
+        if (cell.getState() == Cell.CellType.EndCell)
+            endCellLocation = null;
         cell.setState(Cell.CellType.ObstacleCell);
     }
 
@@ -107,6 +114,10 @@ public class GridModel {
 
     public void handleGridPaneHover(int row, int col){
         Cell cell = getCell(row, col);
+        if (cell.getState() == Cell.CellType.StartCell)
+            startCellLocation = null;
+        if (cell.getState() == Cell.CellType.EndCell)
+            endCellLocation = null;
         cell.setState(Cell.CellType.ObstacleCell);
     }
 
@@ -138,12 +149,12 @@ public class GridModel {
 
     // =============== Other Data =============== //
 
-    public static class Point {
-        int x;
-        int y;
-        Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
+//    public static class Point {
+//        int x;
+//        int y;
+//        Point(int x, int y) {
+//            this.x = x;
+//            this.y = y;
+//        }
+//    }
 }

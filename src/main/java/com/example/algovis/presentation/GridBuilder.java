@@ -14,9 +14,7 @@ public class GridBuilder {
     public void buildGridUI(GridPane gridPane, GridModel gridModel) {
         // Use Platform.runLater to ensure UI updates are done on the JavaFX Application Thread
         Platform.runLater(() -> {
-            System.out.println("[i] in buildGridUI 1 gridPane: " + (gridPane == null));
-            gridPane.getChildren().clear(); // Clear existing children
-            System.out.println("[i] in buildGridUI 1.1");
+            gridPane.getChildren().clear();
 
             int rows = gridModel.getRows();
             int cols = gridModel.getColumns();
@@ -43,7 +41,7 @@ public class GridBuilder {
                 for (int j = 0; j < cols; j++) {
                     Pane pane = new Pane();
                     Cell cell = gridModel.getCell(i, j);
-                    applyCellStyle(pane, cell); // Apply style based on cell type
+                    applyCellStyle(pane, cell);
 
                     int finalI = i;
                     int finalJ = j;
@@ -80,9 +78,7 @@ public class GridBuilder {
     }
 
     private void applyCellStyle(Pane pane, Cell cell) {
-        // Clear previous style classes
         pane.getStyleClass().clear();
-
         switch (cell.getState()) {
             case StartCell:
                 pane.getStyleClass().add("start-cell-style");
