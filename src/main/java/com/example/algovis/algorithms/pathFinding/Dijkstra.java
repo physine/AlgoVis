@@ -1,8 +1,8 @@
-package com.example.algovis.algorithms;
+package com.example.algovis.algorithms.pathFinding;
 
 import com.example.algovis.models.GridModel;
 
-public class AStar implements SearchAlgorithm {
+public class Dijkstra implements SearchAlgorithm {
 
     private GridModel gridModel;
 

@@ -1,4 +1,4 @@
-package com.example.algovis.algorithms;
+package com.example.algovis.algorithms.pathFinding;
 
 import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
@@ -14,7 +14,7 @@ public class DFS implements SearchAlgorithm {
 
     @Override
     public void nextState() {
-        Cell cell = gridModel.getCell(10, 10);
+        Cell cell = gridModel.getCell(0, 1);
         cell.setState(Cell.CellType.ObstacleCell);
     }
 

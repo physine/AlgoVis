@@ -1,4 +1,4 @@
-package com.example.algovis.algorithms;
+package com.example.algovis.algorithms.pathFinding;
 
 import com.example.algovis.models.GridModel;
 

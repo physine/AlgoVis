@@ -1,7 +1,9 @@
 package com.example.algovis.controllers;
 
-import com.example.algovis.algorithms.AlgorithmFactory;
-import com.example.algovis.algorithms.SearchAlgorithm;
+import com.example.algovis.algorithms.mazeGeneration.MazeGenerator;
+import com.example.algovis.algorithms.mazeGeneration.RandomizedDFS;
+import com.example.algovis.algorithms.pathFinding.AlgorithmFactory;
+import com.example.algovis.algorithms.pathFinding.SearchAlgorithm;
 import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
 import com.example.algovis.models.gridModleStates.PreSearchState;
@@ -24,6 +26,7 @@ public class GridController{
     private GridBuilder gridBuilder;
 
     private GridSearchService gridSearchService;
+    private MazeGenerator mazeGenerator;
 
     @FXML
     private Button startBtn;
@@ -39,6 +42,9 @@ public class GridController{
 
     @FXML
     private Button obstacleCellBtn;
+
+    @FXML
+    private Button generateMazeBtn;
 
     @FXML
     private Button finalCellBtn;
@@ -64,13 +70,15 @@ public class GridController{
     }
 
     @Inject
-    public GridController(GridModel gridModel, GridSearchService gridSearchService, GridBuilder gridBuilder) {
+    public GridController(GridModel gridModel, GridSearchService gridSearchService, GridBuilder gridBuilder, RandomizedDFS mazeGenerator) {
         this.gridModel = gridModel;
         this.gridSearchService = gridSearchService;
         this.gridBuilder = gridBuilder;
+        this.mazeGenerator = mazeGenerator;
         gridBuilder.setGridController(this);
         gridSearchService.setGridController(this);
         this.gridSearchService.setGridModel(gridModel);
+        this.mazeGenerator.setGridModel(gridModel);
     }
 
     @FXML
@@ -145,6 +153,12 @@ public class GridController{
     @FXML
     private void onObstacleCellButtonClicked() {
            cellMarker = CellMarkerState.Obstacle;
+    }
+
+    @FXML
+    private void onGenerateMazeBtnClick(){
+        mazeGenerator.generate();
+        updateGridUI();
     }
 
     public void handleGridPaneClick(MouseEvent event, int row, int col) {

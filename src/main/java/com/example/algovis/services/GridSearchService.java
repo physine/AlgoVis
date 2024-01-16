@@ -1,6 +1,6 @@
 package com.example.algovis.services;
 
-import com.example.algovis.algorithms.SearchAlgorithm;
+import com.example.algovis.algorithms.pathFinding.SearchAlgorithm;
 import com.example.algovis.controllers.GridController;
 import com.example.algovis.models.GridModel;
 import com.google.inject.Singleton;
