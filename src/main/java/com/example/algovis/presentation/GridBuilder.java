@@ -96,6 +96,10 @@ public class GridBuilder {
                 Color color = calculateColorBasedOnDepth(cell.getSearchDepth());
                 pane.setStyle("-fx-background-color: " + toRgbString(color) + ";");
                 break;
+            case Head:
+                // Set the background color to red for the current cell
+                pane.setStyle("-fx-background-color: red;");
+                break;
             case EmptyCell:
             default:
                 pane.getStyleClass().add("empty-cell-style");
@@ -106,12 +110,13 @@ public class GridBuilder {
     private Color calculateColorBasedOnDepth(int depth) {
         // Define a list of colors for the gradient
         List<Color> colors = List.of(
-                Color.DEEPSKYBLUE, Color.LIMEGREEN, Color.CORAL, Color.MEDIUMPURPLE,
+                Color.LIGHTBLUE, Color.YELLOWGREEN, Color.ORANGE, Color.HOTPINK, Color.RED,
+                Color.DARKVIOLET, Color.DEEPSKYBLUE, Color.LIMEGREEN, Color.CORAL, Color.MEDIUMPURPLE,
                 Color.CYAN, Color.GOLDENROD, Color.TOMATO, Color.PLUM, Color.TURQUOISE
         );
 
         // Increase depthPerColor for slower color transitions
-        double depthPerColor = 800.0; // Adjust this value for desired effect
+        double depthPerColor = 10.0; // Adjust this value for desired effect
 
         // Calculate total depth range and normalized depth
         double totalDepthRange = depthPerColor * (colors.size() - 1);
