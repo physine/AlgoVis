@@ -1,8 +1,12 @@
-# Search Algorithm Visualizer
+<h1 align="center">Search Algorithm Visualizer</h1>
 
 ## Overview
 
 This Java application visually demonstrates how search algorithms such as Depth-First Search (DFS), Breadth-First Search (BFS), Dijkstra algo, and A-Star navigate through a grid. It's designed to provide an interactive and educational tool for understanding these algorithms' behavior and characteristics.
+
+<p align="center">
+  <img src="media/search.gif" alt="Search Algorithm Visualizer GIF">
+</p>
 
 ## Features
 

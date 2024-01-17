@@ -116,7 +116,7 @@ public class GridBuilder {
         );
 
         // Increase depthPerColor for slower color transitions
-        double depthPerColor = 10.0; // Adjust this value for desired effect
+        double depthPerColor = 500.0; // Adjust this value for desired effect
 
         // Calculate total depth range and normalized depth
         double totalDepthRange = depthPerColor * (colors.size() - 1);
