@@ -6,6 +6,9 @@ import com.example.algovis.models.GridModel;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+
+import java.util.List;
 
 public class GridBuilder {
 
@@ -89,11 +92,50 @@ public class GridBuilder {
             case ObstacleCell:
                 pane.getStyleClass().add("obstacle-cell-style");
                 break;
+            case Searched:
+                Color color = calculateColorBasedOnDepth(cell.getSearchDepth());
+                pane.setStyle("-fx-background-color: " + toRgbString(color) + ";");
+                break;
             case EmptyCell:
             default:
                 pane.getStyleClass().add("empty-cell-style");
                 break;
         }
+    }
+
+    private Color calculateColorBasedOnDepth(int depth) {
+        // Define a list of colors for the gradient
+        List<Color> colors = List.of(
+                Color.DEEPSKYBLUE, Color.LIMEGREEN, Color.CORAL, Color.MEDIUMPURPLE,
+                Color.CYAN, Color.GOLDENROD, Color.TOMATO, Color.PLUM, Color.TURQUOISE
+        );
+
+        // Increase depthPerColor for slower color transitions
+        double depthPerColor = 800.0; // Adjust this value for desired effect
+
+        // Calculate total depth range and normalized depth
+        double totalDepthRange = depthPerColor * (colors.size() - 1);
+        double normalizedDepth = Math.min(1.0, depth / totalDepthRange);
+
+        // Determine which two colors to interpolate between
+        int colorIndex = (int) (normalizedDepth * (colors.size() - 1));
+        Color startColor = colors.get(colorIndex);
+        Color endColor = colors.get(Math.min(colorIndex + 1, colors.size() - 1));
+
+        // Calculate the interpolation factor within the current color range
+        double localInterpolation = (normalizedDepth % (1.0 / (colors.size() - 1))) * (colors.size() - 1);
+
+        // Interpolate between the two colors
+        return startColor.interpolate(endColor, localInterpolation);
+    }
+
+
+    private String toRgbString(Color color) {
+        return String.format("rgba(%d, %d, %d, %f)",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255),
+                color.getOpacity());
     }
 
     public void setGridController(GridController gridController) {

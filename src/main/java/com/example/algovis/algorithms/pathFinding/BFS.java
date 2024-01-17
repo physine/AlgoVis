@@ -1,6 +1,9 @@
 package com.example.algovis.algorithms.pathFinding;
 
+import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
+
+import java.util.List;
 
 public class BFS implements SearchAlgorithm {
 
@@ -12,8 +15,8 @@ public class BFS implements SearchAlgorithm {
     }
 
     @Override
-    public void nextState() {
-
+    public List<Cell> nextState() {
+        return null;
     }
 
     @Override

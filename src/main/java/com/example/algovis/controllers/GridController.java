@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GridController{
 
@@ -95,6 +96,7 @@ public class GridController{
         algorithmComboBox.getItems().addAll(algorithms[0], algorithms[1], algorithms[2], algorithms[3]);
         algorithmComboBox.setValue(algorithms[0]);
         SearchAlgorithm selectedAlgorithm = AlgorithmFactory.getAlgorithm(algorithms[0]);
+        selectedAlgorithm.setGridModel(gridModel);
         gridSearchService.setSearchAlgorithm(selectedAlgorithm);
 
         gridView.getStyleClass().add("grid-style");
@@ -132,6 +134,7 @@ public class GridController{
     public void onComboBoxClick(){
         String selectedAlgorithm = algorithmComboBox.getSelectionModel().getSelectedItem();
         SearchAlgorithm searchAlgorithm = AlgorithmFactory.getAlgorithm(selectedAlgorithm);
+        searchAlgorithm.setGridModel(gridModel);
         gridSearchService.setSearchAlgorithm(searchAlgorithm);
     }
 
@@ -199,7 +202,7 @@ public class GridController{
         gridBuilder.buildCellUI(gridView, cell);
     }
 
-    public void updateGridCellUI(ArrayList<Cell> cells){
+    public void updateGridCellUI(List<Cell> cells){
         for (Cell cell : cells) {
             gridBuilder.buildCellUI(gridView, cell);
         }

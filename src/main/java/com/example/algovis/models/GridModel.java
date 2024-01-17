@@ -123,6 +123,15 @@ public class GridModel {
 
     // =============== Getter/Setters =============== //
 
+
+    public Point getStartCellLocation() {
+        return startCellLocation;
+    }
+
+    public Point getEndCellLocation() {
+        return endCellLocation;
+    }
+
     public void setState(GridState state){
         this.state = state;
     }

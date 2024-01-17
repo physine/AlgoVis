@@ -2,9 +2,12 @@ package com.example.algovis.services;
 
 import com.example.algovis.algorithms.pathFinding.SearchAlgorithm;
 import com.example.algovis.controllers.GridController;
+import com.example.algovis.models.Cell;
 import com.example.algovis.models.GridModel;
 import com.google.inject.Singleton;
 import javafx.concurrent.Task;
+
+import java.util.List;
 
 @Singleton
 public class GridSearchService {
@@ -23,11 +26,11 @@ public class GridSearchService {
             @Override
             protected Void call() throws Exception {
                 while (!isCancelled() && searchAlgorithm.hasNext()) {
-                    searchAlgorithm.nextState();
-                    gridController.updateGridUI();
+                    List<Cell> updatedCells = searchAlgorithm.nextState();
+                    gridController.updateGridCellUI(updatedCells);
                     try {
                         int delay = 1000 - (int) (1000.0 * delayCoefficient);
-                        System.out.println("[i] delayCoefficient "+delayCoefficient+" delay "+delay+" i "+i++);
+//                        System.out.println("[i] delayCoefficient "+delayCoefficient+" delay "+delay+" i "+i++);
                         Thread.sleep(delay);
                     } catch (InterruptedException e) {
                         if (isCancelled()) {

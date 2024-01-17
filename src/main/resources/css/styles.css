@@ -30,3 +30,9 @@
     -fx-border-color: grey;
     -fx-border-width: 0 0 1px 1px;
 }
+
+.searched-cell-style {
+    -fx-background-color: #8c4a4a;
+    -fx-border-color: grey;
+    -fx-border-width: 0 0 1px 1px;
+}

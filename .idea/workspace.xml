@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a36483-67c9-45b6-9145-604ac5a15f32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/mazeGeneration/MazeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/mazeGeneration/RandomizedDFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/MazeGenerationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/AStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/AlgorithmFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/AlgorithmFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/BFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/DFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/SearchAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/algorithms/pathFinding/SearchAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/controllers/GridController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/GridModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/models/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/presentation/GridBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/algovis/services/GridSearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/algovis/algoVis.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,7 @@
       <workItem from="1705245693291" duration="11471000" />
       <workItem from="1705342659784" duration="11058000" />
       <workItem from="1705359030768" duration="3298000" />
-      <workItem from="1705418993962" duration="4842000" />
+      <workItem from="1705418993962" duration="17164000" />
     </task>
     <servers />
   </component>

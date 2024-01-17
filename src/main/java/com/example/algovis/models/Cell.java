@@ -8,17 +8,28 @@ public class Cell {
         EmptyCell,
         StartCell,
         ObstacleCell,
-        EndCell
+        EndCell,
+        Searched,
+        Head,
     }
 
     CellType state = CellType.EmptyCell;
 
     private Color color;
+    private int searchDepth = 0;
     private int x;
     private int y;
 
     public CellType getState() {
         return state;
+    }
+
+    public int getSearchDepth() {
+        return searchDepth;
+    }
+
+    public void setSearchDepth(int searchDepth) {
+        this.searchDepth = searchDepth;
     }
 
     public void setState(CellType state) {
